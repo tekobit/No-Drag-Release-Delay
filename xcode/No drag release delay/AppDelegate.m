@@ -11,12 +11,12 @@
 @implementation AppDelegate
 
 - (void)awakeFromNib {
-    self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    
-    self.statusBar.title = @"⥺";
-    
-    self.statusBar.menu = _statusMenu;
-    self.statusBar.highlightMode = YES;
+//    self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+//    
+//    self.statusBar.title = @"⥺";
+//    
+//    self.statusBar.menu = _statusMenu;
+//    self.statusBar.highlightMode = YES;
 }
 
 - (IBAction)donate:(id)sender {
