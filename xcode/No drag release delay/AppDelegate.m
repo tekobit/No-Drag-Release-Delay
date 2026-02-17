@@ -27,7 +27,7 @@
     registerCallback();
 }
 
-static bool threeFinger = true;
+static bool threeFinger = false;
 
 static int callback(int device, Finger *data, int nFingers, double timestamp, int frame) {
     if( nFingers == 3 ) {
@@ -35,9 +35,16 @@ static int callback(int device, Finger *data, int nFingers, double timestamp, in
         return 0;
     }
     
-    if(threeFinger && nFingers == 0) {
-        simulateMouseEvent(kCGEventLeftMouseUp);
+    if (nFingers == 0) {
+        if (threeFinger) {
+            simulateMouseEvent(kCGEventLeftMouseUp);
+            threeFinger = false;
+        }
         return 0;
+    }
+    
+    if (nFingers > 3) {
+        threeFinger = false;
     }
     
     return 0;
